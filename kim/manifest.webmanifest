@@ -1,0 +1,30 @@
+{
+ "name": "김중훈의 마이플랜 다이렉트",
+ "short_name": "마이플랜",
+ "start_url": "./",
+ "scope": "./",
+ "display": "standalone",
+ "background_color": "#F4F7FC",
+ "theme_color": "#1D4ED8",
+ "lang": "ko",
+ "icons": [
+  {
+   "src": "icon-192.png?v=3",
+   "sizes": "192x192",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-512.png?v=3",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "any"
+  },
+  {
+   "src": "icon-512.png?v=3",
+   "sizes": "512x512",
+   "type": "image/png",
+   "purpose": "maskable"
+  }
+ ]
+}
