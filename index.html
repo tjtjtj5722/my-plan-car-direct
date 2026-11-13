@@ -2744,6 +2744,145 @@ html, body {
   }
 }
 
+
+/* ==========================================================================
+   COMPACT & MOBILE-OPTIMIZED 10 INSURERS & 8 SERVICES
+   ========================================================================== */
+.services-8-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 52px !important;
+  width: 100% !important;
+}
+
+.service-8-card {
+  background: #ffffff !important;
+  border-radius: 18px !important;
+  padding: 22px 18px !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: all 0.25s ease !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+}
+
+@media (max-width: 860px) {
+  .services-8-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    margin-bottom: 36px !important;
+  }
+  .service-8-card {
+    padding: 16px 14px !important;
+  }
+  .s8-title {
+    font-size: 15px !important;
+  }
+  .s8-desc {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+}
+
+/* 10대 손해보험사 슬림 컴팩트 그리드 (자리 차지 최소화) */
+.insurers-static-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 12px !important;
+  margin-bottom: 40px !important;
+  width: 100% !important;
+}
+
+.insurer-box {
+  background: #ffffff !important;
+  border-radius: 14px !important;
+  border: 1.5px solid #e2e8f0 !important;
+  padding: 14px 10px !important;
+  text-align: center !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-width: 0 !important;
+}
+
+.insurer-box:hover {
+  transform: translateY(-2px) !important;
+  border-color: #00875a !important;
+  box-shadow: 0 6px 16px rgba(0,135,90,0.12) !important;
+}
+
+.ins-name {
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  margin-bottom: 4px !important;
+  white-space: nowrap !important;
+}
+
+.ins-phone {
+  display: inline-block !important;
+  font-size: 15px !important;
+  font-weight: 900 !important;
+  color: #00875a !important;
+  text-decoration: none !important;
+  letter-spacing: -0.3px !important;
+  padding: 4px 10px !important;
+  background: #f0fdf4 !important;
+  border-radius: 20px !important;
+  border: 1px solid #bbf7d0 !important;
+  margin: 3px 0 !important;
+  white-space: nowrap !important;
+}
+
+.ins-phone:hover {
+  background: #00875a !important;
+  color: #ffffff !important;
+}
+
+.ins-sub {
+  font-size: 11.5px !important;
+  color: #64748b !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 900px) {
+  .insurers-static-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* 모바일에서 1열로 늘어지지 않고 2열 5행의 슬림 콤팩트 카드로 자리차지 최소화 */
+  .insurers-static-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin-bottom: 28px !important;
+  }
+  .insurer-box {
+    padding: 10px 8px !important;
+    border-radius: 12px !important;
+  }
+  .ins-name {
+    font-size: 13px !important;
+    margin-bottom: 2px !important;
+  }
+  .ins-phone {
+    font-size: 13.5px !important;
+    padding: 3px 8px !important;
+  }
+  .ins-sub {
+    font-size: 10.5px !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -3353,7 +3492,7 @@ html, body {
         <p class="sec-sub" style="font-size:15px; color:#334155; font-weight:500;">신차 구매부터 다이렉트 보험, 정비, 렌트·리스, 중고차 매각까지 자동차의 전 과정을 책임집니다.</p>
       </div>
 
-      <div class="services-8-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; margin-bottom:52px;">
+      <div class="services-8-grid">
         <!-- 1. 신차 구매 -->
         <div class="service-8-card" onclick="showPage('services'); switchServiceTab('newcar')">
           <div class="clay-candy-icon candy-coral" style="margin-bottom:16px;">🚗</div>
@@ -6235,6 +6374,145 @@ html, body {
   }
 }
 
+
+/* ==========================================================================
+   COMPACT & MOBILE-OPTIMIZED 10 INSURERS & 8 SERVICES
+   ========================================================================== */
+.services-8-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 52px !important;
+  width: 100% !important;
+}
+
+.service-8-card {
+  background: #ffffff !important;
+  border-radius: 18px !important;
+  padding: 22px 18px !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: all 0.25s ease !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+}
+
+@media (max-width: 860px) {
+  .services-8-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    margin-bottom: 36px !important;
+  }
+  .service-8-card {
+    padding: 16px 14px !important;
+  }
+  .s8-title {
+    font-size: 15px !important;
+  }
+  .s8-desc {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+}
+
+/* 10대 손해보험사 슬림 컴팩트 그리드 (자리 차지 최소화) */
+.insurers-static-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 12px !important;
+  margin-bottom: 40px !important;
+  width: 100% !important;
+}
+
+.insurer-box {
+  background: #ffffff !important;
+  border-radius: 14px !important;
+  border: 1.5px solid #e2e8f0 !important;
+  padding: 14px 10px !important;
+  text-align: center !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-width: 0 !important;
+}
+
+.insurer-box:hover {
+  transform: translateY(-2px) !important;
+  border-color: #00875a !important;
+  box-shadow: 0 6px 16px rgba(0,135,90,0.12) !important;
+}
+
+.ins-name {
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  margin-bottom: 4px !important;
+  white-space: nowrap !important;
+}
+
+.ins-phone {
+  display: inline-block !important;
+  font-size: 15px !important;
+  font-weight: 900 !important;
+  color: #00875a !important;
+  text-decoration: none !important;
+  letter-spacing: -0.3px !important;
+  padding: 4px 10px !important;
+  background: #f0fdf4 !important;
+  border-radius: 20px !important;
+  border: 1px solid #bbf7d0 !important;
+  margin: 3px 0 !important;
+  white-space: nowrap !important;
+}
+
+.ins-phone:hover {
+  background: #00875a !important;
+  color: #ffffff !important;
+}
+
+.ins-sub {
+  font-size: 11.5px !important;
+  color: #64748b !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 900px) {
+  .insurers-static-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* 모바일에서 1열로 늘어지지 않고 2열 5행의 슬림 콤팩트 카드로 자리차지 최소화 */
+  .insurers-static-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin-bottom: 28px !important;
+  }
+  .insurer-box {
+    padding: 10px 8px !important;
+    border-radius: 12px !important;
+  }
+  .ins-name {
+    font-size: 13px !important;
+    margin-bottom: 2px !important;
+  }
+  .ins-phone {
+    font-size: 13.5px !important;
+    padding: 3px 8px !important;
+  }
+  .ins-sub {
+    font-size: 10.5px !important;
+  }
+}
+
 </style>
 
 <!-- Calendar Zoom Modal -->
@@ -6769,6 +7047,145 @@ html, body {
   }
   .hero-slide-content h1 {
     font-size: 21px !important;
+  }
+}
+
+
+/* ==========================================================================
+   COMPACT & MOBILE-OPTIMIZED 10 INSURERS & 8 SERVICES
+   ========================================================================== */
+.services-8-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 16px !important;
+  margin-bottom: 52px !important;
+  width: 100% !important;
+}
+
+.service-8-card {
+  background: #ffffff !important;
+  border-radius: 18px !important;
+  padding: 22px 18px !important;
+  border: 1.5px solid #e2e8f0 !important;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.04) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: all 0.25s ease !important;
+  box-sizing: border-box !important;
+  min-width: 0 !important;
+}
+
+@media (max-width: 860px) {
+  .services-8-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+    margin-bottom: 36px !important;
+  }
+  .service-8-card {
+    padding: 16px 14px !important;
+  }
+  .s8-title {
+    font-size: 15px !important;
+  }
+  .s8-desc {
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+  }
+}
+
+/* 10대 손해보험사 슬림 컴팩트 그리드 (자리 차지 최소화) */
+.insurers-static-grid {
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 12px !important;
+  margin-bottom: 40px !important;
+  width: 100% !important;
+}
+
+.insurer-box {
+  background: #ffffff !important;
+  border-radius: 14px !important;
+  border: 1.5px solid #e2e8f0 !important;
+  padding: 14px 10px !important;
+  text-align: center !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-width: 0 !important;
+}
+
+.insurer-box:hover {
+  transform: translateY(-2px) !important;
+  border-color: #00875a !important;
+  box-shadow: 0 6px 16px rgba(0,135,90,0.12) !important;
+}
+
+.ins-name {
+  font-size: 14px !important;
+  font-weight: 800 !important;
+  color: #0f172a !important;
+  margin-bottom: 4px !important;
+  white-space: nowrap !important;
+}
+
+.ins-phone {
+  display: inline-block !important;
+  font-size: 15px !important;
+  font-weight: 900 !important;
+  color: #00875a !important;
+  text-decoration: none !important;
+  letter-spacing: -0.3px !important;
+  padding: 4px 10px !important;
+  background: #f0fdf4 !important;
+  border-radius: 20px !important;
+  border: 1px solid #bbf7d0 !important;
+  margin: 3px 0 !important;
+  white-space: nowrap !important;
+}
+
+.ins-phone:hover {
+  background: #00875a !important;
+  color: #ffffff !important;
+}
+
+.ins-sub {
+  font-size: 11.5px !important;
+  color: #64748b !important;
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+@media (max-width: 900px) {
+  .insurers-static-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  /* 모바일에서 1열로 늘어지지 않고 2열 5행의 슬림 콤팩트 카드로 자리차지 최소화 */
+  .insurers-static-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin-bottom: 28px !important;
+  }
+  .insurer-box {
+    padding: 10px 8px !important;
+    border-radius: 12px !important;
+  }
+  .ins-name {
+    font-size: 13px !important;
+    margin-bottom: 2px !important;
+  }
+  .ins-phone {
+    font-size: 13.5px !important;
+    padding: 3px 8px !important;
+  }
+  .ins-sub {
+    font-size: 10.5px !important;
   }
 }
 
