@@ -140,7 +140,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* SECTION COMMON */
 .sec-title-area { margin-bottom: 28px; }
-.sec-tag { font-size: 13px; font-weight: 800; color: var(--db-green); letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; display: block; }
+.sec-tag {
+  display: inline-block !important;
+  width: auto !important;
+  max-width: max-content !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: var(--db-green) !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 8px !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+}
 .sec-title { font-size: 26px; font-weight: 800; color: var(--db-navy); letter-spacing: -0.6px; line-height: 1.3; }
 .sec-sub { font-size: 15px; color: var(--db-text-muted); margin-top: 6px; }
 
@@ -2730,9 +2742,18 @@ html, body {
     font-size: 13.5px !important;
   }
   .sec-tag {
-    font-size: 11px !important;
-    padding: 4px 10px !important;
-  }
+  display: inline-block !important;
+  width: auto !important;
+  max-width: max-content !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: var(--db-green) !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 8px !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+}
 }
 
 @media (max-width: 480px) {
@@ -3325,7 +3346,527 @@ html, body {
   }
 }
 
+
+/* ==========================================================================
+   GALAXY 360px / IPHONE SE / MOBILE GLOBAL PERFECT RESPONSIVE ENGINE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+img, svg, video, canvas {
+  max-width: 100% !important;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  /* 1. 상단 다크 탑바: 360px에서도 절대 쪼개지지 않는 스마트폰 1줄 정돈 */
+  .top-bar {
+    padding: 7px 8px !important;
+    background: #001f36 !important;
+    overflow: hidden !important;
+  }
+  .top-bar .container {
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .top-bar-row1 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+    font-size: 11px !important;
+  }
+  .top-bar-row1 span {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  .top-bar-row2 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  .top-bar-row2 span, .top-bar-row2 a {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  .top-bar-row2 button {
+    display: none !important; /* 모바일에서는 직통 터치 전화가 있으므로 번호복사 생략 */
+  }
+
+  /* 2. 메인 헤더 & 로고: 360px에서 100% 1줄 유지 (줄바꿈 및 위로 쏠림 완전 방지) */
+  .header-wrapper {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    background: #ffffff !important;
+  }
+  .header-main {
+    height: 52px !important;
+    padding: 0 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  .header-logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    text-decoration: none !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .brand-emblem-svg {
+    width: 28px !important;
+    height: 28px !important;
+    flex-shrink: 0 !important;
+  }
+  .brand-text-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .brand-name {
+    font-size: 14.5px !important;
+    font-weight: 900 !important;
+    color: #002b49 !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.4px !important;
+    line-height: 1.15 !important;
+    text-overflow: ellipsis !important;
+  }
+  .brand-badge {
+    font-size: 8px !important;
+    font-weight: 800 !important;
+    color: #00875a !important;
+    letter-spacing: 0.8px !important;
+    white-space: nowrap !important;
+    line-height: 1.1 !important;
+  }
+
+  /* 헤더 우측 [삼선] [검색] */
+  .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    flex-shrink: 0 !important;
+  }
+  .mobile-hamburger-btn {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    font-size: 16px !important;
+    color: #0f172a !important;
+  }
+  .header-search-btn {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+  .header-search-btn svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  /* 3. 상단 6대 퀵 카드 (360px 모바일 화면 완벽 맞춤) */
+  .top-core-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+  }
+  .core-nav-card {
+    padding: 8px 6px !important;
+    gap: 6px !important;
+    border-radius: 10px !important;
+  }
+  .core-card-icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 17px !important;
+  }
+  .core-card-title {
+    font-size: 12.5px !important;
+    white-space: nowrap !important;
+  }
+  .core-card-desc {
+    font-size: 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* 4. 다른 모든 탭 & 섹션 360px 전수 오버플로우 방지 */
+  .official-hub-grid,
+  .reviews-4-grid,
+  .portal-news-grid,
+  .mycar-grid,
+  .calc-form-grid,
+  .near-finder-grid,
+  .two-col-grid,
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  /* 자차 8면 사진 촬영 가이드 모바일 2열 정렬 */
+  .z8-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .z8-card {
+    padding: 10px 8px !important;
+  }
+
+  /* 15장 슬라이드 모바일 카드 */
+  .slides-grid, .guide-steps-grid, .pillars-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  /* 하단 스티키 바 360px 화면 완벽 맞춤 (전화번호 짤림 0%) */
+  .sticky-quick-bar {
+    padding: 6px 8px !important;
+  }
+  .sticky-actions {
+    gap: 4px !important;
+  }
+  .sticky-actions a, .sticky-actions button {
+    padding: 8px 2px !important;
+    font-size: 11.5px !important;
+    letter-spacing: -0.4px !important;
+  }
+}
+
 </style>
+
+<!-- ==================== ULTIMATE MOBILE 360px RESPONSIVE OVERRIDE ==================== -->
+<style id="ultimate-mobile-master-patch">
+@media (max-width: 768px) {
+  /* 1. 상단 탑바: 2줄 완벽 고정, 절대 글자 쪼개짐 없음 */
+  .top-info-bar {
+    padding: 6px 10px !important;
+    background: #001729 !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+  }
+  .top-info-bar .container {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 0 !important;
+  }
+  .top-bar-row1, .top-bar-row2 {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    width: 100% !important;
+    white-space: nowrap !important;
+    font-size: 11px !important;
+    overflow: hidden !important;
+  }
+  .top-bar-row1 span, .top-bar-row2 span, .top-bar-row2 a {
+    white-space: nowrap !important;
+    font-size: 11px !important;
+  }
+
+  /* 2. 메인 헤더 & 로고: 360px에서 1줄 유지 및 위로 파고듦 완전 차단 */
+  .header-wrapper {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.06) !important;
+  }
+  .header-main {
+    height: 54px !important;
+    padding: 0 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  .header-logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+    flex-shrink: 0 !important;
+  }
+  .brand-emblem-svg {
+    width: 32px !important;
+    height: 32px !important;
+    flex-shrink: 0 !important;
+  }
+  .brand-text-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    line-height: 1.2 !important;
+  }
+  .brand-name {
+    font-size: 14.5px !important;
+    font-weight: 900 !important;
+    color: #002b49 !important;
+    letter-spacing: -0.6px !important;
+    white-space: nowrap !important;
+  }
+  .brand-badge {
+    font-size: 8.5px !important;
+    font-weight: 800 !important;
+    color: #00875a !important;
+    letter-spacing: 0.8px !important;
+    white-space: nowrap !important;
+  }
+  .mobile-hamburger-btn {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #002b49 !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .header-phone-btn, .header-quote-btn {
+    display: none !important;
+  }
+
+  /* 3. 홈 탭 8대 맞춤 서비스 카드: 4열 찌그러짐 방지 -> 2열 쾌적 배치 */
+  .services-8-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    margin-bottom: 32px !important;
+    width: 100% !important;
+  }
+  .service-8-card {
+    padding: 14px 10px !important;
+    min-height: auto !important;
+    border-radius: 12px !important;
+  }
+  .service-8-card .clay-candy-icon {
+    font-size: 24px !important;
+    margin-bottom: 8px !important;
+  }
+  .service-8-card .s8-title {
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    margin-bottom: 4px !important;
+    white-space: nowrap !important;
+  }
+  .service-8-card .s8-desc {
+    font-size: 11px !important;
+    line-height: 1.35 !important;
+    margin-bottom: 10px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+  .service-8-card .s8-action-bar {
+    font-size: 11px !important;
+    padding-top: 6px !important;
+  }
+
+  /* 4. 홈 탭 공인 포털 허브 (내보험다보여 등 6개 카드): 2열 배치 */
+  .official-hub-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    margin-bottom: 32px !important;
+  }
+  .official-hub-card {
+    padding: 14px 10px !important;
+  }
+  .official-hub-card h3 {
+    font-size: 13.5px !important;
+    white-space: nowrap !important;
+  }
+  .official-hub-card p {
+    font-size: 11px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* 5. 홈 탭 유튜브 영상 4개 & 미디어 탭 영상 목록: 2열 배치 (절대 4열 찌그러짐 없음) */
+  .yt-grid-4, .yt-grid-3, .yt-grid-5, .yt-grid-12 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+  }
+  .yt-video-card {
+    border-radius: 12px !important;
+    padding: 8px !important;
+  }
+  .yt-video-card h4 {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    margin: 6px 0 !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    white-space: normal !important;
+  }
+
+  /* 6. 보험사 긴급출동 번호 카드: 1열 길쭉함 방지 -> 컴팩트 2열 배치 */
+  .insurers-static-grid, .insurers-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    margin-bottom: 24px !important;
+  }
+  .insurer-box {
+    padding: 10px 6px !important;
+    border-radius: 10px !important;
+  }
+  .insurer-box .ins-name {
+    font-size: 12px !important;
+    white-space: nowrap !important;
+  }
+  .insurer-box .ins-phone {
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+    margin: 2px 0 !important;
+  }
+  .insurer-box .ins-sub {
+    font-size: 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* 7. 6대 퀵메뉴 카드: 2열 배치 균형 유지 */
+  .portal-quick-grid-6 {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .quick-menu-card-v2 {
+    padding: 12px 10px !important;
+  }
+  .quick-menu-card-v2 h3 {
+    font-size: 13.5px !important;
+    white-space: nowrap !important;
+  }
+  .quick-menu-card-v2 p {
+    font-size: 10.5px !important;
+    white-space: nowrap !important;
+  }
+
+  /* 8. 하단 스티키 바: 카톡 상담 글자 쪼개짐 100% 방지 */
+  .sticky-quick-bar {
+    padding: 6px 6px !important;
+    background: rgba(0, 31, 54, 0.96) !important;
+    backdrop-filter: blur(10px) !important;
+  }
+  .sticky-bar-inner {
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    width: 100% !important;
+  }
+  .sticky-left-info {
+    display: none !important; /* 모바일에서는 버튼 공간 확보를 위해 서브텍스트 숨김 */
+  }
+  .sticky-actions {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 4px !important;
+    width: 100% !important;
+  }
+  .sticky-actions a, .sticky-actions button {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+    padding: 9px 2px !important;
+    font-size: 11.5px !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    border-radius: 8px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    letter-spacing: -0.5px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  /* 9. 본문 섹션 타이틀 및 태그 깔끔화 (불필요한 가로 바 완전 제거) */
+  .sec-tag {
+    display: inline-block !important;
+    width: auto !important;
+    max-width: max-content !important;
+    background: #e0f2fe !important;
+    color: #0369a1 !important;
+    border: 1px solid #7dd3fc !important;
+    box-shadow: none !important;
+    margin-bottom: 6px !important;
+  }
+  .sec-title {
+    font-size: 20px !important;
+    line-height: 1.35 !important;
+    letter-spacing: -0.5px !important;
+  }
+  .sec-sub {
+    font-size: 12.5px !important;
+    line-height: 1.45 !important;
+  }
+
+  /* 10. AI 상담봇 플로팅 버튼: 우측 하단 아담한 위치 */
+  .ai-pet-root {
+    right: 12px !important;
+    bottom: 60px !important;
+  }
+  .ai-pet-avatar {
+    width: 44px !important;
+    height: 44px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 
@@ -3334,17 +3875,14 @@ html, body {
   <div class="top-info-bar" style="background:#001f36; color:#e2e8f0; padding:10px 0; font-size:14px; border-bottom:1px solid rgba(255,255,255,0.12);">
     <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
       <div class="top-bar-row1">
-        <span style="color:#00e599; font-weight:800; font-size:14px;">🛡️ 마이플랜 자동차 다이렉트</span>
+        <span style="color:#00e599; font-weight:800;">🛡️ 마이플랜 다이렉트</span>
         <span style="opacity:0.4;">|</span>
-        <span style="font-size:13.5px;">20년 실전 컨설팅 김중훈 대표 직영</span>
-        
+        <span>20년 전문가 김중훈 직영</span>
       </div>
       <div class="top-bar-row2">
-        <span>다이렉트 직통상담: <a href="tel:01057428603" style="color:#00e599; font-weight:800; text-decoration:none; font-size:15px;">010-5742-8603</a></span>
-        <button type="button" onclick="copyPhone()" style="background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,0.25); padding:4px 10px; border-radius:6px; font-size:12px; cursor:pointer; font-weight:700;">번호 복사</button>
-        <a href="https://www.youtube.com/channel/UCzMSFiN0WbWfZIs23V4esow" target="_blank" style="color:#ff6b6b; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:4px; font-size:13.5px;">
-          <span>📺 공식 유튜브 바로가기 ↗</span>
-        </a>
+        <span>직통: <a href="tel:01057428603" style="color:#00e599; font-weight:800; text-decoration:none;">010-5742-8603</a></span>
+        <span style="opacity:0.4;">|</span>
+        <a href="https://www.youtube.com/channel/UCzMSFiN0WbWfZIs23V4esow" target="_blank" style="color:#ff6b6b; font-weight:700; text-decoration:none;">📺 유튜브 ↗</a>
       </div>
     </div>
   </div>
@@ -3383,9 +3921,9 @@ html, body {
           <rect x="40" y="38.5" width="5" height="3" rx="1" fill="#1e293b"/>
           <path d="M32 10.5L33.5 14.5L37.5 16L33.5 17.5L32 21.5L30.5 17.5L26.5 16L30.5 14.5L32 10.5Z" fill="url(#mpGoldRim)"/>
         </svg>
-        <div>
-          <span style="font-size:24px; font-weight:900; color:#002b49; letter-spacing:-0.5px; display:block; line-height:1.2;">마이플랜 자동차 다이렉트</span>
-          <span style="font-size:11px; font-weight:800; color:#00875a; letter-spacing:1px; display:block;">DIRECT AUTO PORTAL</span>
+        <div class="brand-text-wrap">
+          <span class="brand-name">마이플랜 자동차 다이렉트</span>
+          <span class="brand-badge">DIRECT AUTO PORTAL</span>
         </div>
       </a>
 
@@ -3878,7 +4416,7 @@ html, body {
             <!-- OFFICIAL PUBLIC SERVICES HUB (Cotton Candy Clay Icons & Crisp Cards) -->
 <!-- OFFICIAL PUBLIC SERVICES HUB (Vivid Crisp Clay Cards) -->
       <div id="official-portal-hub" class="sec-title-area" style="margin-top: 52px; margin-bottom: 24px;">
-        <span class="sec-tag" style="background:linear-gradient(90deg, #4ade80 0%, #86efac 25%, #bbf7d0 60%, #dcfce7 100%); color:#052e16; font-weight:900; font-size:12.5px; padding:6px 16px; border-radius:20px; border:1.5px solid #22c55e; letter-spacing:0.5px; box-shadow:0 2px 6px rgba(34,197,94,0.2);">OFFICIAL PUBLIC SERVICES</span>
+        <span class="sec-tag" style="display:inline-block; width:auto; max-width:max-content; background:linear-gradient(90deg, #4ade80 0%, #86efac 25%, #bbf7d0 60%, #dcfce7 100%); color:#052e16; font-weight:900; font-size:12.5px; padding:6px 16px; border-radius:20px; border:1.5px solid #22c55e; letter-spacing:0.5px; box-shadow:0 2px 6px rgba(34,197,94,0.2);">OFFICIAL PUBLIC SERVICES</span>
         <h2 class="sec-title" style="font-size:28px; font-weight:900; color:#002b49; margin-top:8px;">🏛️ 대한민국 공인 자동차·보험 통합 조회 허브</h2>
         <p class="sec-sub" style="font-size:15px; color:#334155; font-weight:500;">한국신용정보원·보험개발원·금융감독원·국토교통부 등 정부 및 공인기관의 핵심 조회를 1초 만에 안전하게 연결합니다.</p>
       </div>
@@ -3970,7 +4508,7 @@ html, body {
       </div>
 <!-- 8-SERVICE ONE-STOP GRID (Vivid Crisp Cards) -->
       <div class="sec-title-area" style="margin-top: 52px; margin-bottom: 24px;">
-        <span class="sec-tag" style="background:linear-gradient(90deg, #38bdf8 0%, #7dd3fc 25%, #bae6fd 60%, #e0f2fe 100%); color:#082f49; font-weight:900; font-size:12.5px; padding:6px 16px; border-radius:20px; border:1.5px solid #0284c7; letter-spacing:0.5px; box-shadow:0 2px 6px rgba(2,132,199,0.2);">DIRECT SERVICES</span>
+        <span class="sec-tag" style="display:inline-block; width:auto; max-width:max-content; background:linear-gradient(90deg, #38bdf8 0%, #7dd3fc 25%, #bae6fd 60%, #e0f2fe 100%); color:#082f49; font-weight:900; font-size:12.5px; padding:6px 16px; border-radius:20px; border:1.5px solid #0284c7; letter-spacing:0.5px; box-shadow:0 2px 6px rgba(2,132,199,0.2);">DIRECT SERVICES</span>
         <h2 class="sec-title" style="font-size:28px; font-weight:900; color:#002b49; margin-top:8px;">마이플랜 자동차 맞춤 8대 서비스</h2>
         <p class="sec-sub" style="font-size:15px; color:#334155; font-weight:500;">신차 구매부터 다이렉트 보험, 정비, 렌트·리스, 중고차 매각까지 자동차의 전 과정을 책임집니다.</p>
       </div>
@@ -6843,9 +7381,18 @@ html, body {
     font-size: 13.5px !important;
   }
   .sec-tag {
-    font-size: 11px !important;
-    padding: 4px 10px !important;
-  }
+  display: inline-block !important;
+  width: auto !important;
+  max-width: max-content !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: var(--db-green) !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 8px !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+}
 }
 
 @media (max-width: 480px) {
@@ -7435,6 +7982,228 @@ html, body {
   .yt-grid-3 {
     grid-template-columns: 1fr !important;
     gap: 14px !important;
+  }
+}
+
+
+/* ==========================================================================
+   GALAXY 360px / IPHONE SE / MOBILE GLOBAL PERFECT RESPONSIVE ENGINE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+img, svg, video, canvas {
+  max-width: 100% !important;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  /* 1. 상단 다크 탑바: 360px에서도 절대 쪼개지지 않는 스마트폰 1줄 정돈 */
+  .top-bar {
+    padding: 7px 8px !important;
+    background: #001f36 !important;
+    overflow: hidden !important;
+  }
+  .top-bar .container {
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .top-bar-row1 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+    font-size: 11px !important;
+  }
+  .top-bar-row1 span {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  .top-bar-row2 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  .top-bar-row2 span, .top-bar-row2 a {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  .top-bar-row2 button {
+    display: none !important; /* 모바일에서는 직통 터치 전화가 있으므로 번호복사 생략 */
+  }
+
+  /* 2. 메인 헤더 & 로고: 360px에서 100% 1줄 유지 (줄바꿈 및 위로 쏠림 완전 방지) */
+  .header-wrapper {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    background: #ffffff !important;
+  }
+  .header-main {
+    height: 52px !important;
+    padding: 0 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  .header-logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    text-decoration: none !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .brand-emblem-svg {
+    width: 28px !important;
+    height: 28px !important;
+    flex-shrink: 0 !important;
+  }
+  .brand-text-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .brand-name {
+    font-size: 14.5px !important;
+    font-weight: 900 !important;
+    color: #002b49 !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.4px !important;
+    line-height: 1.15 !important;
+    text-overflow: ellipsis !important;
+  }
+  .brand-badge {
+    font-size: 8px !important;
+    font-weight: 800 !important;
+    color: #00875a !important;
+    letter-spacing: 0.8px !important;
+    white-space: nowrap !important;
+    line-height: 1.1 !important;
+  }
+
+  /* 헤더 우측 [삼선] [검색] */
+  .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    flex-shrink: 0 !important;
+  }
+  .mobile-hamburger-btn {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    font-size: 16px !important;
+    color: #0f172a !important;
+  }
+  .header-search-btn {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+  .header-search-btn svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  /* 3. 상단 6대 퀵 카드 (360px 모바일 화면 완벽 맞춤) */
+  .top-core-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+  }
+  .core-nav-card {
+    padding: 8px 6px !important;
+    gap: 6px !important;
+    border-radius: 10px !important;
+  }
+  .core-card-icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 17px !important;
+  }
+  .core-card-title {
+    font-size: 12.5px !important;
+    white-space: nowrap !important;
+  }
+  .core-card-desc {
+    font-size: 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* 4. 다른 모든 탭 & 섹션 360px 전수 오버플로우 방지 */
+  .official-hub-grid,
+  .reviews-4-grid,
+  .portal-news-grid,
+  .mycar-grid,
+  .calc-form-grid,
+  .near-finder-grid,
+  .two-col-grid,
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  /* 자차 8면 사진 촬영 가이드 모바일 2열 정렬 */
+  .z8-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .z8-card {
+    padding: 10px 8px !important;
+  }
+
+  /* 15장 슬라이드 모바일 카드 */
+  .slides-grid, .guide-steps-grid, .pillars-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  /* 하단 스티키 바 360px 화면 완벽 맞춤 (전화번호 짤림 0%) */
+  .sticky-quick-bar {
+    padding: 6px 8px !important;
+  }
+  .sticky-actions {
+    gap: 4px !important;
+  }
+  .sticky-actions a, .sticky-actions button {
+    padding: 8px 2px !important;
+    font-size: 11.5px !important;
+    letter-spacing: -0.4px !important;
   }
 }
 
@@ -7961,9 +8730,18 @@ html, body {
     font-size: 13.5px !important;
   }
   .sec-tag {
-    font-size: 11px !important;
-    padding: 4px 10px !important;
-  }
+  display: inline-block !important;
+  width: auto !important;
+  max-width: max-content !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: var(--db-green) !important;
+  letter-spacing: 0.5px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 8px !important;
+  padding: 4px 12px !important;
+  border-radius: 20px !important;
+}
 }
 
 @media (max-width: 480px) {
@@ -8553,6 +9331,228 @@ html, body {
   .yt-grid-3 {
     grid-template-columns: 1fr !important;
     gap: 14px !important;
+  }
+}
+
+
+/* ==========================================================================
+   GALAXY 360px / IPHONE SE / MOBILE GLOBAL PERFECT RESPONSIVE ENGINE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+img, svg, video, canvas {
+  max-width: 100% !important;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  /* 1. 상단 다크 탑바: 360px에서도 절대 쪼개지지 않는 스마트폰 1줄 정돈 */
+  .top-bar {
+    padding: 7px 8px !important;
+    background: #001f36 !important;
+    overflow: hidden !important;
+  }
+  .top-bar .container {
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .top-bar-row1 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    white-space: nowrap !important;
+    font-size: 11px !important;
+  }
+  .top-bar-row1 span {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  .top-bar-row2 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  .top-bar-row2 span, .top-bar-row2 a {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  .top-bar-row2 button {
+    display: none !important; /* 모바일에서는 직통 터치 전화가 있으므로 번호복사 생략 */
+  }
+
+  /* 2. 메인 헤더 & 로고: 360px에서 100% 1줄 유지 (줄바꿈 및 위로 쏠림 완전 방지) */
+  .header-wrapper {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    background: #ffffff !important;
+  }
+  .header-main {
+    height: 52px !important;
+    padding: 0 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+  }
+  .header-logo {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    text-decoration: none !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .brand-emblem-svg {
+    width: 28px !important;
+    height: 28px !important;
+    flex-shrink: 0 !important;
+  }
+  .brand-text-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .brand-name {
+    font-size: 14.5px !important;
+    font-weight: 900 !important;
+    color: #002b49 !important;
+    white-space: nowrap !important;
+    letter-spacing: -0.4px !important;
+    line-height: 1.15 !important;
+    text-overflow: ellipsis !important;
+  }
+  .brand-badge {
+    font-size: 8px !important;
+    font-weight: 800 !important;
+    color: #00875a !important;
+    letter-spacing: 0.8px !important;
+    white-space: nowrap !important;
+    line-height: 1.1 !important;
+  }
+
+  /* 헤더 우측 [삼선] [검색] */
+  .header-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    flex-shrink: 0 !important;
+  }
+  .mobile-hamburger-btn {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+    font-size: 16px !important;
+    color: #0f172a !important;
+  }
+  .header-search-btn {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 8px !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+  .header-search-btn svg {
+    width: 15px !important;
+    height: 15px !important;
+  }
+
+  /* 3. 상단 6대 퀵 카드 (360px 모바일 화면 완벽 맞춤) */
+  .top-core-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+  }
+  .core-nav-card {
+    padding: 8px 6px !important;
+    gap: 6px !important;
+    border-radius: 10px !important;
+  }
+  .core-card-icon {
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 17px !important;
+  }
+  .core-card-title {
+    font-size: 12.5px !important;
+    white-space: nowrap !important;
+  }
+  .core-card-desc {
+    font-size: 10px !important;
+    white-space: nowrap !important;
+  }
+
+  /* 4. 다른 모든 탭 & 섹션 360px 전수 오버플로우 방지 */
+  .official-hub-grid,
+  .reviews-4-grid,
+  .portal-news-grid,
+  .mycar-grid,
+  .calc-form-grid,
+  .near-finder-grid,
+  .two-col-grid,
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  /* 자차 8면 사진 촬영 가이드 모바일 2열 정렬 */
+  .z8-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .z8-card {
+    padding: 10px 8px !important;
+  }
+
+  /* 15장 슬라이드 모바일 카드 */
+  .slides-grid, .guide-steps-grid, .pillars-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  /* 하단 스티키 바 360px 화면 완벽 맞춤 (전화번호 짤림 0%) */
+  .sticky-quick-bar {
+    padding: 6px 8px !important;
+  }
+  .sticky-actions {
+    gap: 4px !important;
+  }
+  .sticky-actions a, .sticky-actions button {
+    padding: 8px 2px !important;
+    font-size: 11.5px !important;
+    letter-spacing: -0.4px !important;
   }
 }
 
