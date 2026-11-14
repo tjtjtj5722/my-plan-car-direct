@@ -176,6 +176,7 @@ footer .wrap{padding-block:40px 56px;color:var(--ink2);font-size:14.5px;text-ali
         <li><label><input type="checkbox" id="c2" data-k="사업자등록증 사진"><span class="t"><b>사업자등록증 사진</b><span>폰으로 찍어서 보내주시면 됩니다. 사업자번호·대표자명을 여기서 옮겨 적어요.</span></span></label></li>
         <li><label><input type="checkbox" id="c3" data-k="보험대리점 등록번호"><span class="t"><b>보험대리점 등록번호</b><span>보험 회사 홈페이지라면 보통 함께 적어 두는 번호예요.</span></span></label></li>
         <li><label><input type="checkbox" id="c4" data-k="사무실 주소 + 공개 여부"><span class="t"><b>사무실 주소, 그리고 공개해도 되는지</b><span>공개 / 시·구까지만 / 비공개 중에 골라 주세요.</span></span></label></li>
+        <li><label><input type="checkbox" id="c25" data-k="개인정보 담당자 이름·연락처"><span class="t"><b>개인정보 담당자 이름 · 연락처</b><span>견적 신청으로 손님 연락처를 받기 때문에 '개인정보처리방침'에 꼭 적어야 해요. 대표님 본인이어도 됩니다.</span></span></label></li>
       </ul>
     </div>
 
@@ -210,6 +211,16 @@ footer .wrap{padding-block:40px 56px;color:var(--ink2);font-size:14.5px;text-ali
     </div>
 
     <div class="group">
+      <div class="g-h"><span class="g-ic"><svg viewBox="0 0 24 24"><path d="M5 4h10l4 4v12H5z"/><path d="M9 11h6M9 15h6M9 7h3"/></svg></span><div><h3>소개 글</h3><p>홈페이지에서 대표님과 회사를 소개하는 문장이에요. 단어만 적어 주셔도 제가 문장으로 다듬습니다.</p></div><span class="badge must">꼭 필요</span></div>
+      <ul class="items">
+        <li><label><input type="checkbox" id="c26" data-k="회사 소개 한두 줄"><span class="t"><b>회사 소개 한두 줄</b><span>"우리 회사는 이런 곳이다"를 대표님 말투 그대로</span></span></label></li>
+        <li><label><input type="checkbox" id="c27" data-k="대표님 경력·자격증"><span class="t"><b>대표님 경력 · 자격증</b><span>보험 경력 연수, 강의 이력, 자격증 이름</span></span></label></li>
+        <li><label><input type="checkbox" id="c28" data-k="자랑할 숫자"><span class="t"><b>자랑할 숫자</b><span>상담 건수, 수강생 수, 단톡방 인원처럼 정확한 숫자만</span><span class="ex">지금은 단톡방 6,000명으로 되어 있어요. 맞는지 확인해 주세요.</span></span></label></li>
+        <li><label><input type="checkbox" id="c29" data-k="제휴 보험사 목록"><span class="t"><b>함께 일하는 보험사 목록</b><span>홈페이지에 보험사 이름을 넣어도 되는지 함께 알려주세요.</span></span></label></li>
+      </ul>
+    </div>
+
+    <div class="group">
       <div class="g-h"><span class="g-ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10 9.5v5l4.5-2.5z"/></svg></span><div><h3>유튜브 · 인스타 · 스레드</h3><p>홈페이지와 대표님 채널을 서로 연결해서 손님이 오가게 만들어요.</p></div><span class="badge nice">있는 것만</span></div>
       <ul class="items">
         <li><label><input type="checkbox" id="c17" data-k="SNS 주소"><span class="t"><b>유튜브 · 인스타그램 · 스레드 · 블로그 주소</b><span>각 앱에서 '프로필 공유 → 링크 복사' 한 것을 보내주시면 됩니다.</span></span></label></li>
@@ -228,8 +239,10 @@ footer .wrap{padding-block:40px 56px;color:var(--ink2);font-size:14.5px;text-ali
     <div class="group">
       <div class="g-h"><span class="g-ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20.5 20.5l-4.8-4.8"/></svg></span><div><h3>네이버 · 구글 검색 등록</h3><p>"자동차보험 전문가"를 검색했을 때 홈페이지와 회사가 나오게 하는 일이에요.</p></div><span class="badge nice">오픈할 때</span></div>
       <ul class="items">
+        <li><label><input type="checkbox" id="c30" data-k="네이버·구글에 올릴지 (원함/나중에)"><span class="t"><b>네이버 · 구글에 회사가 나오게 할지</b><span>"원한다" 또는 "나중에"만 알려주세요. 원하시면 아래 두 가지만 더 있으면 됩니다.</span><span class="ex">필요한 사진·주소·전화·시간은 위에서 보내주신 것으로 충분해요</span></span></label></li>
+        <li><label><input type="checkbox" id="c31" data-k="대표님 네이버·구글 계정 있음/없음"><span class="t"><b>대표님 네이버 아이디 · 구글(지메일) 계정이 있는지</b><span>"있다 / 없다"만 알려주세요. 회사 등록은 대표님 이름으로 해야 나중에도 대표님 것이 됩니다. 비밀번호는 보내지 마세요.</span></span></label></li>
         <li><label><input type="checkbox" id="c21" data-k="네이버 플레이스 등록 여부"><span class="t"><b>네이버 지도(플레이스)에 회사가 등록돼 있는지</b><span>있으면 링크, 없으면 "없다"고만 알려주세요.</span></span></label></li>
-        <li><label><input type="checkbox" id="c22" data-k="구글 지도 등록 여부"><span class="t"><b>구글 지도에 회사가 등록돼 있는지</b><span>등록할 때는 대표님 계정에서 '관리자 추가' 버튼만 눌러주시면 나머지는 제가 합니다.</span></span></label></li>
+        <li><label><input type="checkbox" id="c22" data-k="구글 지도 등록 여부"><span class="t"><b>구글 지도에 회사가 등록돼 있는지</b><span>구글은 등록할 때 주소 확인 절차(우편 엽서나 짧은 영상)가 한 번 있어요. 그때만 대표님이 직접 해 주시면 되고, 나머지는 '관리자 추가'로 제가 합니다.</span></span></label></li>
         <li><label><input type="checkbox" id="c23" data-k="홈페이지 주소(도메인) 여부"><span class="t"><b>회사 이름으로 된 홈페이지 주소를 만들지</b><span>예: 회사이름.co.kr · 보통 1년에 1~2만 원 정도예요.</span></span></label></li>
         <li><label><input type="checkbox" id="c24" data-k="광고심의 대상 여부 확인"><span class="t"><b>보험 광고심의가 필요한지 확인</b><span>보험 홈페이지는 협회 광고심의 대상이 될 수 있어요. 소속 대리점에 한 번만 물어봐 주세요.</span></span></label></li>
       </ul>
