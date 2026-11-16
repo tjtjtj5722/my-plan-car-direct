@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>홈페이지 자료 답장서</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Sans+KR:wght@600;700&display=swap">
+<style>
+/* Layout: 한 장짜리 답장서. 위 진행 막대 → 색깔 있는 8개 묶음 카드에 바로 입력 → 맨 아래 "답장 완성" 영역 */
+:root{
+  color-scheme:light;
+  --bg:#F2F4FA; --card:#FFFFFF; --ink:#141B2E; --ink2:#525C73; --line:#DCE2EE; --field:#F7F9FD;
+  --navy:#13265A; --navy2:#0A1532; --gold:#F2B21B;
+  --c1:#2F5BEA; --c2:#0E9F86; --c3:#E5603E; --c4:#8B5CF6; --c5:#E0457B; --c6:#D9930B; --c7:#0EA5E9; --c8:#475569;
+  --ok:#0E9F86;
+  --f-body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  --f-disp:"IBM Plex Sans KR","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0D1322;--card:#161E33;--ink:#EEF2FA;--ink2:#A9B4CB;--line:#2A3450;--field:#10182B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0D1322;--card:#161E33;--ink:#EEF2FA;--ink2:#A9B4CB;--line:#2A3450;--field:#10182B;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:anywhere}
+img{max-width:100%}[hidden]{display:none!important}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-disp);margin:0;letter-spacing:-.02em;text-wrap:balance}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+/* hero */
+.hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(160deg,var(--navy2),var(--navy) 60%,#1E3A8A)}
+.hero::after{content:"";position:absolute;inset:auto -10% -60% auto;width:520px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(242,178,27,.28),transparent);pointer-events:none}
+.hero .wrap{position:relative;z-index:1;padding-block:44px 34px;display:grid;gap:14px}
+.hero .eb{font-size:14px;font-weight:700;color:#C8D4F0;letter-spacing:.04em}
+.hero h1{font-size:clamp(28px,5vw,40px);line-height:1.25}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{margin:0;color:#C8D4F0;max-width:32em}
+.dots{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.dots a{display:inline-flex;align-items:center;gap:6px;font-size:13.5px;font-weight:700;color:#fff;text-decoration:none;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:5px 11px;border-radius:999px}
+.dots i{width:9px;height:9px;border-radius:50%;display:inline-block}
+
+/* sticky progress */
+.prog{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.prog .wrap{display:flex;align-items:center;gap:12px;padding-block:10px}
+.pbar{flex:1;height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.pbar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--c1),var(--c2),var(--gold));transition:width .35s}
+.prog b{font-size:14.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.saved{font-size:12.5px;color:var(--ok);font-weight:700;min-width:5.5em;text-align:right}
+
+main .wrap{padding-block:22px 10px;display:grid;gap:18px}
+.note{background:var(--card);border:1px dashed var(--line);border-radius:16px;padding:14px 16px;font-size:15px;color:var(--ink2)}
+.note b{color:var(--ink)}
+
+/* group cards */
+.g{--c:var(--c1);background:var(--card);border:1px solid var(--line);border-radius:22px;overflow:hidden;scroll-margin-top:64px}
+.g-h{display:flex;align-items:center;gap:14px;padding:18px 20px;background:linear-gradient(120deg,color-mix(in srgb,var(--c) 14%,var(--card)),var(--card) 75%);border-bottom:1px solid var(--line);position:relative}
+.g-h::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--c)}
+.g-n{flex:none;width:42px;height:42px;border-radius:13px;background:var(--c);color:#fff;display:grid;place-items:center;font-family:var(--f-disp);font-weight:700;font-size:18px}
+.g-h h2{font-size:20px;line-height:1.3}
+.g-h p{margin:2px 0 0;font-size:14px;color:var(--ink2);line-height:1.5}
+.g-h .tag{margin-left:auto;flex:none;font-size:12.5px;font-weight:700;padding:4px 10px;border-radius:999px;background:color-mix(in srgb,var(--c) 14%,var(--card));color:var(--c)}
+.g-b{padding:8px 20px 20px;display:grid;gap:4px}
+.q{display:grid;gap:8px;padding-block:14px;border-top:1px solid var(--line)}
+.q:first-child{border-top:0}
+.q label.l,.q .l{font-weight:700;font-size:16.5px;display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+.q .l .req{white-space:nowrap;flex:none;font-size:12px;font-weight:700;color:var(--c3);background:color-mix(in srgb,var(--c3) 12%,var(--card));padding:1px 8px;border-radius:999px}
+.q .h{font-size:14px;color:var(--ink2);margin-top:-4px}
+.q input[type=text],.q input[type=tel],.q input[type=email],.q input[type=url],.q textarea{width:100%;min-height:50px;padding:12px 14px;border:1.5px solid var(--line);border-radius:13px;background:var(--field);color:var(--ink);font:inherit;font-size:16px}
+.q textarea{min-height:92px;resize:vertical;line-height:1.6}
+.q input:focus,.q textarea:focus{outline:none;border-color:var(--c);box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 20%,transparent);background:var(--card)}
+.q.done .l::after{content:"✓";margin-left:auto;width:24px;height:24px;border-radius:50%;background:color-mix(in srgb,var(--ok) 15%,var(--card));color:var(--ok);display:grid;place-items:center;font-size:13px;font-weight:900}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative;cursor:pointer}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips span{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:999px;border:1.5px solid var(--line);background:var(--field);font-size:15px;font-weight:700;color:var(--ink2);transition:.15s}
+.chips input:checked + span{background:var(--c);border-color:var(--c);color:#fff}
+.chips input:focus-visible + span{outline:3px solid var(--gold);outline-offset:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:520px){.two{grid-template-columns:1fr}.g-h{flex-wrap:wrap}.g-h .tag{margin-left:56px}.g-b{padding:6px 16px 16px}}
+.photo{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:13px;background:var(--field);border:1.5px dashed var(--line)}
+.photo .pi{flex:none;width:40px;height:40px;border-radius:12px;background:color-mix(in srgb,var(--c) 14%,var(--card));display:grid;place-items:center}
+.photo .pi svg{width:22px;height:22px;stroke:var(--c);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.photo span{flex:1;font-size:14.5px;color:var(--ink2)}
+.sw{position:relative;flex:none}
+.sw input{position:absolute;opacity:0}
+.sw b{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;border:1.5px solid var(--c);color:var(--c);font-size:14px;cursor:pointer;white-space:nowrap}
+.sw input:checked + b{background:var(--c);color:#fff}
+.sw input:focus-visible + b{outline:3px solid var(--gold);outline-offset:2px}
+
+/* finish */
+.finish{background:linear-gradient(160deg,var(--navy2),var(--navy));color:#fff;border-radius:24px;padding:26px 22px;display:grid;gap:14px}
+.finish h2{font-size:24px}
+.finish p{margin:0;color:#C8D4F0;font-size:15.5px}
+.finish .row{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:54px;padding:0 22px;border-radius:15px;border:0;font:inherit;font-weight:700;font-size:16.5px;cursor:pointer;text-decoration:none}
+.btn.gold{background:var(--gold);color:#1B1300}
+.btn.ghost{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.btn.small{min-height:42px;font-size:14px;padding:0 14px}
+.out{width:100%;min-height:220px;border-radius:14px;border:0;padding:14px;font:inherit;font-size:14px;line-height:1.7;background:#fff;color:#141B2E;resize:vertical}
+.msg{font-size:14.5px;font-weight:700;color:var(--gold);min-height:1.4em}
+.miss{font-size:14px;color:#FFD7CC}
+.back{display:inline-block;margin:6px 0 40px;color:var(--ink2);font-size:14.5px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eb">마이플랜 다이렉트 · 김중훈 대표님 전용</span>
+    <h1>여기에 바로 적어 주시면<br><em>홈페이지가 완성</em>됩니다.</h1>
+    <p>아는 것만 적으셔도 괜찮아요. 적는 대로 이 폰에 자동 저장되니 나눠서 쓰셔도 됩니다. 다 쓰시면 맨 아래 버튼 하나로 카톡에 붙여넣을 답장이 만들어져요.</p>
+    <nav class="dots" aria-label="묶음 바로가기">
+      <a href="#g1"><i style="background:var(--c1)"></i>회사</a><a href="#g2"><i style="background:var(--c2)"></i>연락처</a><a href="#g3"><i style="background:var(--c3)"></i>사진</a><a href="#g4"><i style="background:var(--c4)"></i>소개 글</a><a href="#g5"><i style="background:var(--c5)"></i>직원</a><a href="#g6"><i style="background:var(--c6)"></i>SNS</a><a href="#g7"><i style="background:var(--c7)"></i>결제</a><a href="#g8"><i style="background:var(--c8)"></i>네이버·구글</a>
+    </nav>
+  </div>
+</header>
+
+<div class="prog" aria-live="polite"><div class="wrap"><div class="pbar"><i id="pbar"></i></div><b id="pcount">0 / 0</b><span class="saved" id="saved"></span></div></div>
+
+<main>
+<div class="wrap">
+  <p class="note"><b>비밀번호는 적지 마세요.</b> 사진은 이 칸에 올리지 않고 카톡으로 따로 보내주신 뒤 "보냈어요"만 눌러 주세요.</p>
+
+  <form id="f" novalidate>
+
+  <section class="g" id="g1" style="--c:var(--c1)">
+    <div class="g-h"><span class="g-n">1</span><div><h2>회사 정보</h2><p>홈페이지 맨 아래에 들어가는 기본 정보</p></div><span class="tag">꼭 필요</span></div>
+    <div class="g-b">
+      <div class="q"><label class="l" for="a_name">회사 이름 (상호) <span class="req">필수</span></label><input type="text" id="a_name" name="회사 이름" placeholder="예: 마이플랜 다이렉트"></div>
+      <div class="q"><span class="l">사업자등록증 사진 <span class="req">필수</span></span><div class="photo"><span class="pi"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span>폰으로 찍어서 카톡으로 보내주세요</span><label class="sw"><input type="checkbox" id="a_biz" name="사업자등록증 사진"><b>보냈어요</b></label></div></div>
+      <div class="q"><label class="l" for="a_agency">보험대리점 등록번호</label><input type="text" id="a_agency" name="보험대리점 등록번호" placeholder="모르시면 비워 두셔도 돼요"></div>
+      <div class="q"><label class="l" for="a_addr">사무실 주소</label><input type="text" id="a_addr" name="사무실 주소" placeholder="도로명 주소 + 층/호수"></div>
+      <div class="q"><span class="l">주소를 홈페이지에 공개할까요?</span><div class="chips" role="radiogroup" aria-label="주소 공개"><label><input type="radio" name="주소 공개" value="전체 공개" id="a_ap1"><span>전체 공개</span></label><label><input type="radio" name="주소 공개" value="시·구까지만" id="a_ap2"><span>시·구까지만</span></label><label><input type="radio" name="주소 공개" value="비공개" id="a_ap3"><span>비공개</span></label></div></div>
+      <div class="q"><label class="l" for="a_privacy">개인정보 담당자 이름 · 연락처</label><input type="text" id="a_privacy" name="개인정보 담당자" placeholder="대표님 본인이어도 돼요"><span class="h">견적 신청으로 손님 연락처를 받기 때문에 꼭 적어야 하는 항목이에요.</span></div>
+    </div>
+  </section>
+
+  <section class="g" id="g2" style="--c:var(--c2)">
+    <div class="g-h"><span class="g-n">2</span><div><h2>연락처</h2><p>손님이 바로 연락하는 번호와 시간</p></div><span class="tag">꼭 필요</span></div>
+    <div class="g-b">
+      <div class="q"><span class="l">상담 전화 010-5742-8603 그대로 쓸까요? <span class="req">필수</span></span><div class="chips"><label><input type="radio" name="상담 전화" value="그대로 사용" id="a_tel1"><span>그대로 사용</span></label><label><input type="radio" name="상담 전화" value="다른 번호로 변경" id="a_tel2"><span>다른 번호로</span></label></div><input type="tel" id="a_telnew" name="바꿀 상담 번호" placeholder="바꿀 번호" hidden></div>
+      <div class="q"><span class="l">강의 문의 010-9500-8603 맞나요?</span><div class="chips"><label><input type="radio" name="강의 문의 번호" value="맞음" id="a_lec1"><span>맞아요</span></label><label><input type="radio" name="강의 문의 번호" value="다른 번호" id="a_lec2"><span>다른 번호예요</span></label></div><input type="tel" id="a_lecnew" name="바꿀 강의 문의 번호" placeholder="바꿀 번호" hidden></div>
+      <div class="two">
+        <div class="q"><label class="l" for="a_office">사무실 전화</label><input type="tel" id="a_office" name="사무실 전화" placeholder="없으면 비워 두세요"></div>
+        <div class="q"><label class="l" for="a_fax">팩스</label><input type="tel" id="a_fax" name="팩스" placeholder="없으면 비워 두세요"></div>
+      </div>
+      <div class="q"><label class="l" for="a_email">회사 이메일</label><input type="email" id="a_email" name="회사 이메일" placeholder="문의를 받을 메일 주소"></div>
+      <div class="q"><label class="l" for="a_kakao">카카오톡 채널 주소</label><input type="url" id="a_kakao" name="카카오톡 채널" placeholder="pf.kakao.com/… (없으면 '없음')"></div>
+      <div class="q"><label class="l" for="a_hours">상담 시간 · 쉬는 날 · 점심시간</label><input type="text" id="a_hours" name="상담 시간" placeholder="지금: 월~토 08:00~20:00, 일요일 휴무"></div>
+    </div>
+  </section>
+
+  <section class="g" id="g3" style="--c:var(--c3)">
+    <div class="g-h"><span class="g-n">3</span><div><h2>사진</h2><p>카톡으로 보내신 뒤 "보냈어요"만 눌러 주세요</p></div><span class="tag">대표님 사진은 꼭</span></div>
+    <div class="g-b">
+      <div class="q"><span class="l">대표님 프로필 사진 2~3장 <span class="req">필수</span></span><div class="photo"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c1-4 3.8-6 7-6s6 2 7 6"/></svg></span><span>정장, 밝은 곳, 가슴 위까지 · 가로 1장 + 세로 1장</span><label class="sw"><input type="checkbox" id="a_ph1" name="대표님 프로필 사진"><b>보냈어요</b></label></div></div>
+      <div class="q"><span class="l">강의하시는 모습</span><div class="photo"><span class="pi"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span>설계사 강의 화면에 넣어요</span><label class="sw"><input type="checkbox" id="a_ph2" name="강의 사진"><b>보냈어요</b></label></div></div>
+      <div class="q"><span class="l">사무실 바깥 · 안</span><div class="photo"><span class="pi"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg></span><span>간판이 보이면 더 좋아요</span><label class="sw"><input type="checkbox" id="a_ph3" name="사무실 사진"><b>보냈어요</b></label></div></div>
+      <div class="q"><span class="l">회사 로고</span><div class="chips"><label><input type="radio" name="회사 로고" value="카톡으로 보냄" id="a_logo1"><span>카톡으로 보냈어요</span></label><label><input type="radio" name="회사 로고" value="없음 (글자 로고 사용)" id="a_logo2"><span>없어요</span></label></div></div>
+    </div>
+  </section>
+
+  <section class="g" id="g4" style="--c:var(--c4)">
+    <div class="g-h"><span class="g-n">4</span><div><h2>소개 글</h2><p>단어만 적어 주셔도 문장으로 다듬어 드려요</p></div><span class="tag">꼭 필요</span></div>
+    <div class="g-b">
+      <div class="q"><label class="l" for="a_intro">회사 소개 한두 줄 <span class="req">필수</span></label><textarea id="a_intro" name="회사 소개" placeholder="예: 사고 나면 가장 먼저 전화하는 자동차보험 전문가"></textarea></div>
+      <div class="q"><label class="l" for="a_career">대표님 경력 · 자격증</label><textarea id="a_career" name="경력·자격증" placeholder="보험 경력 연수, 강의 이력, 자격증 이름"></textarea></div>
+      <div class="q"><label class="l" for="a_nums">자랑할 숫자</label><input type="text" id="a_nums" name="자랑할 숫자" placeholder="상담 건수, 수강생 수 등"><span class="h">지금 홈페이지에는 '단톡방 6,000명'으로 되어 있어요. 맞는지도 적어 주세요.</span></div>
+      <div class="q"><label class="l" for="a_ins">함께 일하는 보험사</label><input type="text" id="a_ins" name="제휴 보험사" placeholder="예: 삼성, 현대, DB, KB …"></div>
+    </div>
+  </section>
+
+  <section class="g" id="g5" style="--c:var(--c5)">
+    <div class="g-h"><span class="g-n">5</span><div><h2>직원 소개</h2><p>홈페이지에 직원을 올리실 때만</p></div><span class="tag">선택</span></div>
+    <div class="g-b">
+      <div class="q"><span class="l">직원을 홈페이지에 올릴까요?</span><div class="chips"><label><input type="radio" name="직원 소개" value="올림" id="a_st1"><span>올릴게요</span></label><label><input type="radio" name="직원 소개" value="안 올림" id="a_st2"><span>안 올려요</span></label><label><input type="radio" name="직원 소개" value="나중에" id="a_st3"><span>나중에</span></label></div></div>
+      <div id="staffBox" hidden>
+        <div class="q"><label class="l" for="a_staff">직원별 이름 · 직함 · 맡은 일</label><textarea id="a_staff" name="직원 명단" placeholder="한 줄에 한 분씩&#10;예: 홍길동 / 팀장 / 사고 접수 담당"></textarea></div>
+        <div class="q"><span class="l">직원 사진</span><div class="photo"><span class="pi"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 19c.8-3.5 3-5 6-5s5.2 1.5 6 5"/><circle cx="17" cy="9" r="2.3"/></svg></span><span>한 분에 1장씩 카톡으로</span><label class="sw"><input type="checkbox" id="a_stph" name="직원 사진"><b>보냈어요</b></label></div></div>
+        <div class="q"><span class="l">직원분 본인 공개 동의</span><div class="chips"><label><input type="radio" name="직원 공개 동의" value="모두 동의함" id="a_ag1"><span>모두 동의했어요</span></label><label><input type="radio" name="직원 공개 동의" value="아직 확인 전" id="a_ag2"><span>아직 확인 전</span></label></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="g" id="g6" style="--c:var(--c6)">
+    <div class="g-h"><span class="g-n">6</span><div><h2>유튜브 · 인스타 · 스레드</h2><p>각 앱에서 '프로필 공유 → 링크 복사' 해서 붙여넣기</p></div><span class="tag">있는 것만</span></div>
+    <div class="g-b">
+      <div class="q"><label class="l" for="a_yt">유튜브</label><input type="url" id="a_yt" name="유튜브" placeholder="youtube.com/@…"></div>
+      <div class="two">
+        <div class="q"><label class="l" for="a_ig">인스타그램</label><input type="url" id="a_ig" name="인스타그램" placeholder="instagram.com/…"></div>
+        <div class="q"><label class="l" for="a_th">스레드</label><input type="url" id="a_th" name="스레드" placeholder="threads.net/@…"></div>
+      </div>
+      <div class="q"><label class="l" for="a_blog">블로그 · 오픈채팅 (공개해도 되는 것만)</label><input type="url" id="a_blog" name="블로그·오픈채팅" placeholder="있으면 붙여넣기"></div>
+    </div>
+  </section>
+
+  <section class="g" id="g7" style="--c:var(--c7)">
+    <div class="g-h"><span class="g-n">7</span><div><h2>강의 결제</h2><p>구글폼과 홈페이지 안내를 똑같이 맞춰요</p></div><span class="tag">돈 받을 때 꼭</span></div>
+    <div class="g-b">
+      <div class="q"><span class="l">입금 계좌</span><div class="chips"><label><input type="radio" name="입금 계좌" value="구글폼과 같음" id="a_acc1"><span>구글폼과 같아요</span></label><label><input type="radio" name="입금 계좌" value="다름" id="a_acc2"><span>달라요</span></label></div><input type="text" id="a_accnew" name="입금 계좌 정보" placeholder="은행 · 계좌번호 · 예금주" hidden></div>
+      <div class="q"><span class="l">카드결제도 받으실까요?</span><div class="chips"><label><input type="radio" name="카드결제" value="받음" id="a_card1"><span>받아요</span></label><label><input type="radio" name="카드결제" value="안 받음" id="a_card2"><span>안 받아요</span></label></div><input type="text" id="a_cardhow" name="카드결제 방법" placeholder="쓰시는 방법: 카드 단말기 / 결제 링크 문자 등" hidden></div>
+      <div class="two">
+        <div class="q"><span class="l">현금영수증</span><div class="chips"><label><input type="radio" name="현금영수증" value="가능" id="a_cr1"><span>가능</span></label><label><input type="radio" name="현금영수증" value="불가" id="a_cr2"><span>불가</span></label></div></div>
+        <div class="q"><span class="l">세금계산서</span><div class="chips"><label><input type="radio" name="세금계산서" value="가능" id="a_tx1"><span>가능</span></label><label><input type="radio" name="세금계산서" value="불가" id="a_tx2"><span>불가</span></label></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="g" id="g8" style="--c:var(--c8)">
+    <div class="g-h"><span class="g-n">8</span><div><h2>네이버 · 구글 등록</h2><p>검색했을 때 회사와 홈페이지가 나오게</p></div><span class="tag">오픈할 때</span></div>
+    <div class="g-b">
+      <div class="q"><span class="l">네이버 · 구글에 회사가 나오게 할까요?</span><div class="chips"><label><input type="radio" name="검색 등록" value="원함" id="a_se1"><span>원해요</span></label><label><input type="radio" name="검색 등록" value="나중에" id="a_se2"><span>나중에</span></label></div><span class="h">필요한 사진·주소·전화·시간은 위에 적으신 것으로 충분해요.</span></div>
+      <div class="two">
+        <div class="q"><span class="l">네이버 아이디</span><div class="chips"><label><input type="radio" name="네이버 아이디" value="있음" id="a_nv1"><span>있어요</span></label><label><input type="radio" name="네이버 아이디" value="없음" id="a_nv2"><span>없어요</span></label></div></div>
+        <div class="q"><span class="l">구글(지메일) 계정</span><div class="chips"><label><input type="radio" name="구글 계정" value="있음" id="a_gg1"><span>있어요</span></label><label><input type="radio" name="구글 계정" value="없음" id="a_gg2"><span>없어요</span></label></div></div>
+      </div>
+      <div class="q"><span class="l">네이버 지도(플레이스)에 회사가 이미 있나요?</span><div class="chips"><label><input type="radio" name="네이버 플레이스" value="있음" id="a_pl1"><span>있어요</span></label><label><input type="radio" name="네이버 플레이스" value="없음" id="a_pl2"><span>없어요</span></label><label><input type="radio" name="네이버 플레이스" value="모름" id="a_pl3"><span>모르겠어요</span></label></div></div>
+      <div class="q"><span class="l">회사 이름으로 된 홈페이지 주소를 만들까요?</span><div class="chips"><label><input type="radio" name="홈페이지 주소" value="만들기" id="a_dm1"><span>만들어요</span></label><label><input type="radio" name="홈페이지 주소" value="나중에" id="a_dm2"><span>나중에</span></label></div><span class="h">예: 회사이름.co.kr · 보통 1년에 1~2만 원 정도예요.</span></div>
+      <div class="q"><span class="l">보험 광고심의가 필요한지 확인하셨나요?</span><div class="chips"><label><input type="radio" name="광고심의" value="필요함" id="a_ad1"><span>필요하대요</span></label><label><input type="radio" name="광고심의" value="필요 없음" id="a_ad2"><span>필요 없대요</span></label><label><input type="radio" name="광고심의" value="아직 확인 전" id="a_ad3"><span>아직 확인 전</span></label></div><span class="h">소속 대리점에 한 번만 물어봐 주세요.</span></div>
+    </div>
+  </section>
+
+  <section class="finish" id="finish">
+    <h2>다 쓰셨나요?</h2>
+    <p>아래 버튼을 누르면 적으신 내용이 카톡 답장으로 정리돼요. 붙여넣고 보내주시면 끝입니다.</p>
+    <p class="miss" id="miss" hidden></p>
+    <div class="row"><button class="btn gold" type="submit">답장 만들고 복사하기</button><button class="btn ghost" type="button" id="dl">메모 파일로 저장</button></div>
+    <p class="msg" id="msg" aria-live="polite"></p>
+    <textarea class="out" id="out" readonly hidden aria-label="만들어진 답장"></textarea>
+    <div class="row"><button class="btn ghost small" type="button" id="reset">처음부터 다시 쓰기</button></div>
+  </section>
+  </form>
+
+  <a class="back" href="../">← 자료 요청 안내로 돌아가기</a>
+</div>
+</main>
+
+<script>
+(function(){
+  var f=document.getElementById('f'),KEY='myplan-answer-v1',st={};
+  try{st=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){st={}}
+  var all=[].slice.call(f.querySelectorAll('input,textarea'));
+  all.forEach(function(el){
+    var v=st[el.id];if(v===undefined)return;
+    if(el.type==='checkbox'||el.type==='radio')el.checked=!!v;else el.value=v;
+  });
+  var cond=[['a_tel2','a_telnew','상담 전화'],['a_lec2','a_lecnew','강의 문의 번호'],['a_acc2','a_accnew','입금 계좌'],['a_card1','a_cardhow','카드결제']];
+  function vis(){
+    cond.forEach(function(c){document.getElementById(c[1]).hidden=!document.getElementById(c[0]).checked});
+    document.getElementById('staffBox').hidden=!document.getElementById('a_st1').checked;
+  }
+  function qs(){return [].slice.call(f.querySelectorAll('.q')).filter(function(q){return !q.closest('[hidden]')})}
+  function answered(q){return [].slice.call(q.querySelectorAll('input,textarea')).some(function(el){return (el.type==='checkbox'||el.type==='radio')?el.checked:el.value.trim()!==''})}
+  var t;
+  function save(){
+    var o={};all.forEach(function(el){o[el.id]=(el.type==='checkbox'||el.type==='radio')?el.checked:el.value});
+    try{localStorage.setItem(KEY,JSON.stringify(o));var s=document.getElementById('saved');s.textContent='자동 저장됨';clearTimeout(t);t=setTimeout(function(){s.textContent=''},1600)}catch(e){}
+  }
+  function prog(){
+    var list=qs(),n=0;list.forEach(function(q){var a=answered(q);q.classList.toggle('done',a);if(a)n++});
+    document.getElementById('pbar').style.width=(list.length?n/list.length*100:0)+'%';
+    document.getElementById('pcount').textContent=n+' / '+list.length;
+  }
+  f.addEventListener('input',function(){vis();prog();save()});
+  f.addEventListener('change',function(){vis();prog();save()});
+  vis();prog();
+  function build(){
+    var L=['[홈페이지 자료 답장 — 김중훈 대표]'],miss=[];
+    f.querySelectorAll('section.g').forEach(function(g){
+      L.push('');L.push('■ '+g.querySelector('h2').textContent);
+      [].slice.call(g.querySelectorAll('.q')).forEach(function(q){
+        if(q.closest('[hidden]'))return;
+        var lab=(q.querySelector('.l').childNodes[0].textContent||'').trim();
+        var parts=[];
+        q.querySelectorAll('input,textarea').forEach(function(el){
+          if(el.hidden)return;
+          if(el.type==='radio'){if(el.checked)parts.push(el.value)}
+          else if(el.type==='checkbox'){if(el.checked)parts.push('카톡으로 보냄')}
+          else if(el.value.trim())parts.push(el.value.trim().replace(/\n/g,' / '));
+        });
+        if(!parts.length&&q.querySelector('.req'))miss.push(lab);
+        L.push('· '+lab+' : '+(parts.length?parts.join(' / '):'-'));
+      });
+    });
+    return {text:L.join('\n'),miss:miss};
+  }
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var r=build(),out=document.getElementById('out'),msg=document.getElementById('msg'),miss=document.getElementById('miss');
+    out.value=r.text;out.hidden=false;
+    miss.hidden=!r.miss.length;miss.textContent=r.miss.length?'아직 비어 있는 필수 칸: '+r.miss.join(', ')+' (나중에 채워서 다시 보내셔도 돼요)':'';
+    function fb(){out.focus();out.select();msg.textContent='아래 글을 길게 눌러 전체 복사한 뒤 카톡에 붙여넣어 주세요.'}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(r.text).then(function(){msg.textContent='복사했어요! 카톡 창에 붙여넣어 보내주세요.'},fb)}else fb();
+  });
+  document.getElementById('dl').addEventListener('click',function(){
+    var r=build();try{var b=new Blob([r.text],{type:'text/plain;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='홈페이지_자료_답장.txt';document.body.appendChild(a);a.click();a.remove();document.getElementById('msg').textContent='메모 파일로 저장했어요.'}catch(e){document.getElementById('msg').textContent='저장이 안 되면 [답장 만들고 복사하기]를 써 주세요.'}
+  });
+  var rs=document.getElementById('reset'),armed=false;
+  rs.addEventListener('click',function(){
+    if(!armed){armed=true;rs.textContent='한 번 더 누르면 모두 지워져요';setTimeout(function(){armed=false;rs.textContent='처음부터 다시 쓰기'},3000);return}
+    try{localStorage.removeItem(KEY)}catch(e){}
+    all.forEach(function(el){if(el.type==='checkbox'||el.type==='radio')el.checked=false;else el.value=''});
+    armed=false;rs.textContent='처음부터 다시 쓰기';document.getElementById('out').hidden=true;document.getElementById('msg').textContent='모두 지웠어요.';vis();prog();
+  });
+})();
+</script>
+</body>
+</html>
