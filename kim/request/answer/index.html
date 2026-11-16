@@ -103,15 +103,46 @@ main .wrap{padding-block:22px 10px;display:grid;gap:18px}
 .miss{font-size:14px;color:#FFD7CC}
 .back{display:inline-block;margin:6px 0 40px;color:var(--ink2);font-size:14.5px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.hero .cover{padding-block:52px 30px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+.cv-l{display:grid;gap:14px}
+.hero .eb{display:inline-flex;align-items:center;gap:10px;font-size:15px}
+.hero .eb .live{width:10px;height:10px;border-radius:50%;background:#34D399;box-shadow:0 0 0 4px rgba(52,211,153,.2)}
+.hero h1.cv-t{font-size:clamp(46px,10vw,80px);line-height:1.12;font-weight:700;letter-spacing:-.035em;margin-top:6px}
+.cv-t em{font-style:normal;color:var(--gold)}
+.cv-s{margin:0;font-size:clamp(17px,2.6vw,24px);color:#C8D4F0}
+.cv-brand{margin-top:14px;font-family:var(--f-disp);font-size:20px;font-weight:700}.cv-brand b{color:#7AA2FF}
+.cv-card{width:270px;background:#fff;color:#141B2E;border-radius:22px;padding:20px;display:grid;gap:11px;box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(2deg)}
+.cv-card small{font-size:14px;font-weight:700;color:#525C73}
+.cv-bar{height:10px;border-radius:999px;background:#E3E8F2;overflow:hidden}.cv-bar i{display:block;height:100%;width:62%;background:linear-gradient(90deg,var(--c1),var(--c2),var(--gold))}
+.cv-card span{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16.5px}
+.cv-card span b{width:26px;height:26px;border-radius:8px;color:#fff;display:grid;place-items:center;font-size:14px}
+.hero .intro{padding-block:0 32px;display:grid;gap:12px;position:relative;z-index:1}
+.hero .intro p{margin:0;color:#C8D4F0;max-width:34em;font-size:16px}
+@media (max-width:640px){.hero .cover{grid-template-columns:1fr;padding-block:40px 22px}.cv-card{width:100%;max-width:300px;transform:none;justify-self:start}}
 </style>
 <meta property="og:type" content="website"><meta property="og:url" content="https://tjtjtj5722.github.io/my-plan-car-direct/kim/request/answer/"><meta property="og:title" content="홈페이지 자료 답장서 · 마이플랜 다이렉트"><meta property="og:description" content="칸에 바로 적고, 버튼 하나로 카톡 답장을 만들어 보내세요."><meta property="og:image" content="https://tjtjtj5722.github.io/my-plan-car-direct/kim/request/answer/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="description" content="칸에 바로 적고, 버튼 하나로 카톡 답장을 만들어 보내세요.">
 </head>
 <body>
 
 <header class="hero">
-  <div class="wrap">
-    <span class="eb">마이플랜 다이렉트 · 김중훈 대표님 전용</span>
-    <h1>여기에 바로 적어 주시면<br><em>홈페이지가 완성</em>됩니다.</h1>
+  <div class="wrap cover">
+    <div class="cv-l">
+      <span class="eb"><i class="live"></i>김중훈 대표님 전용 안내</span>
+      <h1 class="cv-t">홈페이지<br><em>자료 답장서</em></h1>
+      <p class="cv-s">칸에 바로 적고 카톡으로 보내기</p>
+      <span class="cv-brand"><b>마이플랜</b> 다이렉트</span>
+    </div>
+    <div class="cv-card" aria-hidden="true">
+      <small>답장 작성 중</small>
+      <div class="cv-bar"><i></i></div>
+      <span><b style="background:var(--c1)">✓</b>회사 정보</span>
+      <span><b style="background:var(--c2)">✓</b>연락처</span>
+      <span><b style="background:var(--c3)">✓</b>사진</span>
+      <span><b style="background:var(--c4)">✓</b>소개 글</span>
+    </div>
+  </div>
+  <div class="wrap intro">
     <p>아는 것만 적으셔도 괜찮아요. 적는 대로 이 폰에 자동 저장되니 나눠서 쓰셔도 됩니다. 다 쓰시면 맨 아래 버튼 하나로 카톡에 붙여넣을 답장이 만들어져요.</p>
     <nav class="dots" aria-label="묶음 바로가기">
       <a href="#g1"><i style="background:var(--c1)"></i>회사</a><a href="#g2"><i style="background:var(--c2)"></i>연락처</a><a href="#g3"><i style="background:var(--c3)"></i>사진</a><a href="#g4"><i style="background:var(--c4)"></i>소개 글</a><a href="#g5"><i style="background:var(--c5)"></i>직원</a><a href="#g6"><i style="background:var(--c6)"></i>SNS</a><a href="#g7"><i style="background:var(--c7)"></i>결제</a><a href="#g8"><i style="background:var(--c8)"></i>네이버·구글</a>
